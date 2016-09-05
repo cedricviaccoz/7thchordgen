@@ -6,11 +6,11 @@ Once you've played that chord you can press enter key and the program will show 
 
 #The chords
 The chords you are required to play have three variables :
-* the base (tonique) (all twelve note from A to G with semi-tones)
-* the string in wich the bass (tonique) has to be played (4th, 5th, or 6th string)
-* and the chord itself, the choices are the following :
-..1. Maj7
-..2. 7
-..3. m7 (-7)
-..4. m7b5 (%)
-..5. diminished/diminué (°)
+1. the base (tonique) (all twelve note from A to G with semi-tones)
+2. the string in wich the bass (tonique) has to be played (4th, 5th, or 6th string)
+3. and the chord itself, the choices are the following :
+..* Maj7
+..* 7
+..* m7 (-7)
+..* m7b5 (%)
+..* diminished/diminué (°)
