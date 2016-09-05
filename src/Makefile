@@ -1,11 +1,10 @@
 CFLAGS += -std=c99
 
-all: chordgen pictDB_server
+all: chordgen
 
-cg_utils.o: cg_utils.c
-chordgen.o: chordgen.c chordgen.h
+chordgen.o: chordgen.c chordgen.h cg_utils.c
 
-chordgen: chordgen.o cg_utils.o
+chordgen: chordgen.o
 
 clean:
 	rm *.o
