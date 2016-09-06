@@ -3,6 +3,8 @@
 #define MAX_CHORDS 5
 #define CRD_STR_LGTH 42
 #define TRUTH_POS 16 // where is "x" located in chords diagram.
+#define INTRO_STR "generate a new chord"
+#define SOLUT_STR "see the solution"
 
 /* there are the ascii strings representation of the chords diagram,
   the "x" at the middle case is supposed to be remplaced by the number
@@ -103,8 +105,10 @@ struct Chord{
 void rng_init();
 
 /*dumb function to make the user control at which moment
-he wants the program to procede to the next step*/
-void press_enter_to_continue();
+he wants the program to procede to the next step, 
+takes a string as argument to modularize whate comes
+after "press enter key to " */
+void press_enter_to_continue(const char * strng);
 
 //retourne un entier choisi aléatoirement compris entre 0 et la limite donné en argument
 int rng(int const limit);
