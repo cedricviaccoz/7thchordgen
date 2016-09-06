@@ -27,7 +27,7 @@ int main()
     press_enter_to_continue();
 
     /*now we extract the good chord diagram, make a copy and remplace
-    the "x" with the good corresponding number on thie copy*/
+    the "x" with the good corresponding number on the copy*/
     const char * correct_diagram = get_the_good_string(chord.corde,chord.accord);
     char chord_diagram[CRD_STR_LGTH];
     strncpy(chord_diagram, correct_diagram, CRD_STR_LGTH);
