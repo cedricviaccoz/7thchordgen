@@ -1,5 +1,5 @@
 # 7thchordgen
-Just a samll C program to train myself into learning chords.
+Just a samll C program to train myself into learning jazz chords.
 
 Once you run the program, you juste have to press a key, then it will dictate you to play a random chord
 for example a Cmin7 with the bass on the 5th string.
