@@ -17,14 +17,14 @@ int main()
   /*I don't see any benefit in adding a termination feature for
    the moment,so the program will forever keep on running.*/
   while(1){
-    press_enter_to_continue();
+    press_enter_to_continue(INTRO_STR);
     chord.note = rng(MAX_NOTES);
     chord.corde = rng(MAX_CORDES);
     chord.accord = rng(MAX_CHORDS);
-    printf("\nYou need to play this chord : %s%s on the %s string.\n\n",
+    printf("You need to play this chord : %s%s on the %s string.\n\n",
             array_note[chord.note], array_accord[chord.accord],
             array_corde[chord.corde]);
-    press_enter_to_continue();
+    press_enter_to_continue(SOLUT_STR);
 
     /*now we extract the good chord diagram, make a copy and remplace
     the "x" with the good corresponding number on the copy*/
@@ -67,7 +67,7 @@ void rng_init(){
       srand((unsigned) time(&t));
 }
 
-void press_enter_to_continue(){
-  printf("press ENTER key to continue.");
+void press_enter_to_continue(const char * strng){
+  printf("press ENTER key to %s\n.", strng);
   getchar();
 }
