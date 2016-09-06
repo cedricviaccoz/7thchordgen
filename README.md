@@ -7,7 +7,7 @@ Then when you've played that chord you can press enter key and the program will 
 
 The source code was written to be compiled by gcc on a linux terminal, I'm certain it might also works on macOS, but for windows I have no idea since I have never developped C programs on it.
 
-#The chords
+##The chords
 The chords you are required to play have three variables :
 * the base (tonique) (all twelve notes from A to G with semi-tones)
 * the string in wich the bass (tonique) has to be played (4th, 5th, or 6th string)
