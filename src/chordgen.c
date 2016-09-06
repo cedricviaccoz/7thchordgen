@@ -30,12 +30,25 @@ int main()
     the "x" with the good corresponding number on the copy*/
     const char * correct_diagram = get_the_good_string(chord.corde,chord.accord);
     char chord_diagram[CRD_STR_LGTH];
+
     strncpy(chord_diagram, correct_diagram, CRD_STR_LGTH);
-    char xSubstitute = get_the_good_frette(chord.note, chord.corde);
+    char xSubstitute = get_the_good_fret(chord.note, chord.corde);
+
     chord_diagram[TRUTH_POS] = xSubstitute;
     printf("\nthe solution was :\n\n%s\n", chord_diagram);
   }
     return 0;
+}
+
+void rng_init(){
+      time_t t;
+      /* Intializes random number generator */
+      srand((unsigned) time(&t));
+}
+
+void press_enter_to_continue(const char * strng){
+  printf("press ENTER key to %s.\n", strng);
+  getchar();
 }
 
 const char * get_the_good_string(Corde corde, Accord accord){
@@ -47,11 +60,11 @@ const char * get_the_good_string(Corde corde, Accord accord){
   }
 }
 
-char get_the_good_frette(Note note, Corde corde){
+char get_the_good_fret(Note note, Corde corde){
   switch(corde){
     //+2 and +7 for the semitones in change between strings.
-    case FOURTH: return array_frette[((note + 2) % 12)];
-    case FIFTH: return array_frette[((note + 7) % 12)];
+    case FOURTH: return array_frette[((note + 2) % MAX_NOTES)];
+    case FIFTH: return array_frette[((note + 7) % MAX_NOTES)];
     case SIXTH: return array_frette[note];
     default: return array_frette[note];
   }
@@ -59,15 +72,4 @@ char get_the_good_frette(Note note, Corde corde){
 
 int rng(int const limit){
     return rand() % limit;
-}
-
-void rng_init(){
-      time_t t;
-      /* Intializes random number generator */
-      srand((unsigned) time(&t));
-}
-
-void press_enter_to_continue(const char * strng){
-  printf("press ENTER key to %s\n.", strng);
-  getchar();
 }
