@@ -43,6 +43,7 @@ enum Note{
     G,
     Ab,
     A,
+    Bb,
     B,
     C,
     Db,
