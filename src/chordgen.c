@@ -46,7 +46,7 @@ int main(void)
         interruptSig = 1;
         errorMsg();
       }else{
-        chord_diagram[TRUTH_POS] = xSubstitute;
+        place_the_fret_num(chord_diagram, xSubstitute);
         printf("\nthe solution was :\n\n%s\n", chord_diagram);
       }
     }
@@ -88,6 +88,21 @@ char get_the_good_fret(Note note, Corde corde){
 
 int rng(int const limit){
     return rand() % limit;
+}
+
+void place_the_fret_num(char * diagram, char toReplace){
+  switch(toReplace){
+    case 'A': diagram[TRUTH_POS-1] = '1';
+              diagram[TRUTH_POS] = '0';
+              break;
+    case 'B': diagram[TRUTH_POS-1] = '1';
+              diagram[TRUTH_POS] = '1';
+              break;
+    case 'C': diagram[TRUTH_POS-1] = '1';
+              diagram[TRUTH_POS] = '2';
+              break;
+    default : diagram[TRUTH_POS] = toReplace;
+  }
 }
 
 void errorMsg(void){

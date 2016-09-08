@@ -1,8 +1,8 @@
 #define MAX_NOTES 12 //tweleve diatonics notes.
 #define MAX_CORDES 4 // E A D G, the fourth lower strings
 #define MAX_CHORDS 5  //five mode of seventh's chord.
-#define CRD_STR_LGTH 42 //max chord diagram's string length
-#define TRUTH_POS 16 // where is "x" located in chords diagram.
+#define CRD_STR_LGTH 47 //max chord diagram's string length
+#define TRUTH_POS 19 // where is "x" located in chords diagram.
 #define INTRO_STR "generate a new chord"
 #define SOLUT_STR "see the solution"
 
@@ -10,37 +10,36 @@
   "+" represents the place where the tonique is hold, and
   the "x" at the middle case is supposed to be remplaced by the number
   of the fret when needed"*/
-
 const char * c_forms_sixth[MAX_CHORDS] = {
-  " ||||||\n ||||||\nx+|||*|\n ||**||\n ||||||\n",
-  " ||||||\n ||||||\nx+|*|*|\n |||*||\n ||||||\n",
-  " ||||||\n ||||||\nx+|***|\n ||||||\n ||||||\n",
-  " ||||||\n ||||*|\nx+|**||\n ||||||\n ||||||\n",
-  " ||||||\n ||*-*|\nx+||*||\n ||||||\n ||||||\n"
+  "  ||||||\n  ||||||\n x+|||*|\n  ||**||\n  ||||||\n",
+  "  ||||||\n  ||||||\n x+|*|*|\n  |||*||\n  ||||||\n",
+  "  ||||||\n  ||||||\n x+|***|\n  ||||||\n  ||||||\n",
+  "  ||||||\n  ||||*|\n x+|**||\n  ||||||\n  ||||||\n",
+  "  ||||||\n  ||*-*|\n x+||*||\n  ||||||\n  ||||||\n"
 };
 
 const char * c_forms_fifth[MAX_CHORDS] = {
-  " ||||||\n ||||||\nx|+---*\n |||*||\n ||*|*|\n",
-  " ||||||\n ||*|||\nx|+|*||\n ||||||\n ||||*|\n",
-  " ||*|||\n ||||||\nx|+|*||\n ||||*|\n ||||||\n",
-  " ||||||\n ||||||\nx|+|*||\n ||*|*|\n ||||||\n",
-  " ||||||\n |||*||\nx|+||||\n ||*|*|\n ||||||\n"
+  "  ||||||\n  ||||||\n x|+---*\n  |||*||\n  ||*|*|\n",
+  "  ||||||\n  ||*|||\n x|+|*||\n  ||||||\n  ||||*|\n",
+  "  ||*|||\n  ||||||\n x|+|*||\n  ||||*|\n  ||||||\n",
+  "  ||||||\n  ||||||\n x|+|*||\n  ||*|*|\n  ||||||\n",
+  "  ||||||\n  |||*||\n x|+||||\n  ||*|*|\n  ||||||\n"
 };
 
 const char * c_forms_fourth[MAX_CHORDS] = {
-  " ||||||\n ||||||\nx||+|||\n ||||||\n |||*-*\n",
-  " ||||||\n ||||||\nx||+|||\n ||||*|\n |||*|*\n",
-  " ||||||\n ||||||\nx||+|||\n ||||**\n |||*||\n",
-  " ||||||\n ||||||\nx||+|||\n |||*-*\n ||||||\n",
-  " ||||||\n ||||||\nx||+|*|\n |||*|*\n ||||||\n"
+  "  ||||||\n  ||||||\n x||+|||\n  ||||||\n  |||*-*\n",
+  "  ||||||\n  ||||||\n x||+|||\n  ||||*|\n  |||*|*\n",
+  "  ||||||\n  ||||||\n x||+|||\n  ||||**\n  |||*||\n",
+  "  ||||||\n  ||||||\n x||+|||\n  |||*-*\n  ||||||\n",
+  "  ||||||\n  ||||||\n x||+|*|\n  |||*|*\n  ||||||\n"
 };
 
 const char * c_forms_third[MAX_CHORDS] = {
-  " ||||||\n ||||||\nx||*+-*\n ||||||\n |||||*\n",
-  " ||||||\n ||||||\nx||*+-*\n |||||*\n ||||||\n",
-  " ||||||\n ||||*|\nx||*+||\n ||||||\n |||||*\n",
-  " ||||||\n ||*-*|\nx|||+||\n |||||*\n ||||||\n",
-  " ||||||\n ||*|*|\nx|||+|*\n ||||||\n ||||||\n"
+  "  ||||||\n  ||||||\n x||*+-*\n  ||||||\n  |||||*\n",
+  "  ||||||\n  ||||||\n x||*+-*\n  |||||*\n  ||||||\n",
+  "  ||||||\n  ||||*|\n x||*+||\n  ||||||\n  |||||*\n",
+  "  ||||||\n  ||*-*|\n x|||+||\n  |||||*\n  ||||||\n",
+  "  ||||||\n  ||*|*|\n x|||+|*\n  ||||||\n  ||||||\n"
 };
 /* enum which represents the base of the chord.
   followed by its array of string
@@ -66,7 +65,8 @@ char * array_note[MAX_NOTES] = {
 
 /*to replace the "x" in the ASCII diagram
   Since I can't write "10", "11" and "12" as one char,
-  I use Hexadeciaml notation to represent them*/
+  I use Hexadeciaml notation to represent them, and then
+  handles their diagram representation later.*/
 char array_frette[MAX_NOTES] = {
   '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C'
 };
@@ -124,6 +124,11 @@ void press_enter_to_continue(const char * strng);
 
 //returns a integer between 0 and the limit give as argument.
 int rng(int const limit);
+
+/* take care to replace the 'x' in diagram by the char toReplace
+   made as function to handle the case of the frets '10','11' and '12'
+   where they should be displayed correctly*/
+void place_the_fret_num(char * diagram, char toReplace);
 
 /*return a pointer on the correct chord diagram according
 to the string of the base of the chord and the chord mode*/
