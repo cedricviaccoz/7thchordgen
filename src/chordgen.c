@@ -107,6 +107,6 @@ void place_the_fret_num(char * diagram, char toReplace){
 
 void errorMsg(void){
   printf("An error occured, please restart the program "
-         "or contact the dumbfuck responsible for this "
+         "or contact the idiot responsible for this "
          "piece of trash.");
 }
