@@ -20,7 +20,7 @@ const char * c_forms_sixth[MAX_CHORDS] = {
 
 const char * c_forms_fifth[MAX_CHORDS] = {
   "  ||||||\n  ||||||\n x|+---*\n  |||*||\n  ||*|*|\n",
-  "  ||||||\n  ||*|||\n x|+|*||\n  ||||||\n  ||||*|\n",
+  "  ||||||\n  ||||||\n x|+---*\n  ||||||\n  ||*|*|\n",
   "  ||*|||\n  ||||||\n x|+|*||\n  ||||*|\n  ||||||\n",
   "  ||||||\n  ||||||\n x|+|*||\n  ||*|*|\n  ||||||\n",
   "  ||||||\n  |||*||\n x|+||||\n  ||*|*|\n  ||||||\n"
@@ -101,7 +101,7 @@ char * array_accord[MAX_CHORDS] = {
   "7",
   "m7",
   "m7b5",
-  "°"
+  "diminished"
 };
 
 /*Struct that represents the chord to be displayed*/
